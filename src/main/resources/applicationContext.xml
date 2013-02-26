@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+  <context:component-scan base-package="jp.classmethod.aws.petrucci" />
+  <context:property-placeholder location="classpath:/aws.properties"/>
+  <context:annotation-config />
+
+  <!-- Scheduler -->
+  <task:annotation-driven executor="executor" scheduler="scheduler"/>
+  <task:executor id="executor" pool-size="5"/>
+  <task:scheduler id="scheduler" pool-size="5" />
+  
+  <!-- AWS -->
+  <bean class="com.amazonaws.services.s3.AmazonS3Client">
+    <constructor-arg ref="awsCredential"/>
+  </bean>
+
+  <bean class="com.amazonaws.services.ec2.AmazonEC2Client">
+    <constructor-arg ref="awsCredential"/>
+  </bean>
+
+  <bean class="com.amazonaws.services.simpleemail.AmazonSimpleEmailServiceClient">
+    <constructor-arg ref="awsCredential"/>
+  </bean>
+
+  <bean id="awsCredential" class="com.amazonaws.auth.BasicAWSCredentials">
+    <constructor-arg name="accessKey" value="${aws.api.accessKey}"/>
+    <constructor-arg name="secretKey" value="${aws.api.secretKey}"/>
+  </bean>
+
+</beans>
