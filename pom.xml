@@ -145,15 +145,9 @@
     <!-- ======== TEST DEPENDENCIES ======== -->
     <dependency>
       <groupId>junit</groupId>
-      <artifactId>junit-dep</artifactId>
+      <artifactId>junit</artifactId>
       <version>${junit-version}</version>
       <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.eclipse.jetty.aggregate</groupId>
-      <artifactId>jetty-all-server</artifactId>
-      <version>${jetty-version}</version>
-      <scope>provided</scope>
     </dependency>
     
     <!-- ======== LOGGER DEPENDENCIES ======== -->
@@ -182,6 +176,14 @@
             <artifactId>commons-logging</artifactId>
           </exclusion>
         </exclusions>
+    </dependency>
+    
+    <!-- ======== JavaEE DEPENDENCIES ======== -->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>3.0.1</version>
+      <scope>provided</scope>
     </dependency>
     
     <!-- ======== SPRING DEPENDENCIES ======== -->
