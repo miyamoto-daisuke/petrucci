@@ -6,7 +6,7 @@
   <groupId>jp.classmethod.aws</groupId>
   <artifactId>petrucci</artifactId>
   <packaging>war</packaging>
-  <version>1.0.1-SNAPSHOT</version>
+  <version>1.0.1</version>
   <inceptionYear>2013</inceptionYear>
   <licenses>
     <license>
