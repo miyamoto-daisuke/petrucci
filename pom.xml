@@ -101,13 +101,6 @@
               <optionName>MaxSize</optionName>
               <value>1</value>
             </optionSetting>
-            <optionSetting>
-              <namespace>aws:autoscaling:launchconfiguration</namespace>
-              <optionName>EC2KeyName</optionName>
-              <value>miyamoto-kp1</value>
-            </optionSetting>
-            <!--
-            -->
           </optionSettings>
         </configuration>
         <executions>
